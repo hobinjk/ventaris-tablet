@@ -1,6 +1,6 @@
 {
   "name": "ventaris-tablet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility functions for drawing sequences of gw2 buffs and skills",
   "main": "index.js",
   "scripts": {

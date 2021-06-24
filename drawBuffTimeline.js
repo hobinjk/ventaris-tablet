@@ -57,6 +57,10 @@ const profSpecificBuffs = {
   'Assassin\'s Signet (Active)': 1,
   'Bounding Dodger': 2,
   Revealed: 3,
+  'Lead Attacks': 4,
+  'Lotus Training': 5,
+  'Skale Venom': 6,
+  'Spider Venom': 7,
   // Mirage
   'Mirage Cloak': 0,
   'Compounding Power': 1,

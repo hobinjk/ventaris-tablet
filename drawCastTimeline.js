@@ -109,7 +109,7 @@ function drawCasts(board, log, casts, row, dimensions, rectClass,
 
     let skillName = castSkillName(cast, log.skills);
     let text = null;
-    if (labelMode === 'name') {
+    if (labelMode === 'name' || !icon) {
       if (skillName) {
         text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         text.setAttribute('x', timeToX(cast.start));

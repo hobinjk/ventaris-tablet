@@ -84,7 +84,7 @@ function drawCasts(board, log, casts, row, dimensions, rectClass,
     const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     rect.classList.add('cast');
     if (!cast.fired) {
-      rect.classList.add('cancel');
+      g.classList.add('cancel');
     }
     if (rectClass) {
       rect.classList.add(rectClass);

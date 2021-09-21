@@ -15,9 +15,14 @@ function getDps10s(targetDamage) {
   return {dps10s, max};
 }
 
-function dpsToY(dpsMax, dimensions) {
+function dpsToY(dpsMax, dimensions, linearScaling) {
   const {railHeight, railPad} = dimensions;
   let height = (railHeight + railPad) * 2 + railPad;
+  if (linearScaling) {
+    return function(dps) {
+      return height - dps / dpsMax * height + railPad;
+    };
+  }
   let max = dpsMax * 1.5;
   let logMax = Math.log(max - dpsMax);
   let logMin = Math.log(max);
@@ -28,11 +33,11 @@ function dpsToY(dpsMax, dimensions) {
   };
 }
 
-function getPath(log, dps10s, dpsMax, dimensions) {
+function getPath(log, dps10s, dpsMax, dimensions, linearScaling) {
   const {timeToX} = dimensions;
 
   let points = '';
-  let toY = dpsToY(dpsMax, dimensions);
+  let toY = dpsToY(dpsMax, dimensions, linearScaling);
 
   for (let i = 0; i < dps10s.length; i++) {
     let x = timeToX(i * 1000 + log.start);
@@ -120,15 +125,15 @@ class Tooltip {
   }
 }
 
-function draw(board, log, benchmark, dimensions) {
+function draw(board, log, benchmark, dimensions, linearScaling) {
   const {railHeight, railPad, xToTime} = dimensions;
   const {dps10s, max} = getDps10s(log.targetDamage1S);
   const {dps10s: benchDps10s, max: benchMax} =
     getDps10s(benchmark.targetDamage1S);
   const realMax = Math.max(max, benchMax);
 
-  const path = getPath(log, dps10s, realMax, dimensions);
-  const benchPath = getPath(log, benchDps10s, realMax, dimensions);
+  const path = getPath(log, dps10s, realMax, dimensions, linearScaling);
+  const benchPath = getPath(log, benchDps10s, realMax, dimensions, linearScaling);
   benchPath.classList.add('dps-path-benchmark');
 
   board.appendChild(benchPath);
@@ -148,10 +153,10 @@ function draw(board, log, benchmark, dimensions) {
     if (!boardContainerRect) {
       boardContainerRect = boardContainer.getBoundingClientRect();
     }
-    if (event.clientY - boardContainerRect.top > height) {
-      tooltip.hide();
-      return;
-    }
+    // if (event.clientY - boardContainerRect.top > height) {
+    //   tooltip.hide();
+    //   return;
+    // }
     let totalX = event.clientX + boardContainer.scrollLeft -
       boardContainerRect.left;
     let logTime = xToTime(totalX);

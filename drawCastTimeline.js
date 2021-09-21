@@ -97,9 +97,9 @@ function drawCasts(board, log, casts, row, dimensions, rectClass,
       if (skillIcon) {
         icon = document.createElementNS('http://www.w3.org/2000/svg', 'image');
         icon.setAttribute('x', timeToX(cast.start));
-        icon.setAttribute('y', (railHeight + railPad) * row);
-        icon.setAttribute('width', railHeight);
-        icon.setAttribute('height', railHeight);
+        icon.setAttribute('y', (railHeight + railPad) * row + 1);
+        icon.setAttribute('width', railHeight - 2);
+        icon.setAttribute('height', railHeight - 2);
         icon.classList.add('icon');
         icon.setAttribute('href', skillIcon);
       } else {

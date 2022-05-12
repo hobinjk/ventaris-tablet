@@ -48,6 +48,14 @@ const profSpecificBuffs = {
   'Fire Attunement': 2,
   'Water Attunement': 3,
   'Transcendent Tempest': 4,
+  // Catawyst
+  'Crescent Wind': 5,
+  'Rocky Loop': 6,
+  'Flame Wheel': 7,
+  'Icy Coil': 8,
+  'Relentless Fire': 9,
+  'Elemental Empowerment':  10,
+  'Empowering Auras': 11,
   // Chrono
   'Fencer\'s Finess': 0,
   'Time Anchored': 1,

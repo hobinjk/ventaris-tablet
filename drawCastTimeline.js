@@ -10,6 +10,14 @@ const specialCaseSkillNames = {
   43995: 'F2', // Gazelle charge
 };
 
+const namesSpecterShroud = {
+  'Haunt Shot': '1',
+  'Grasping Shadows': '2',
+  'Dawn\'s Repose': '3',
+  'Eternal Night': '4',
+  'Mind Shock': '5',
+};
+
 function castSkillIcon(cast) {
   let data = SkillData.get(cast.id);
   if (!data || !data.icon) {
@@ -55,6 +63,8 @@ function castSkillName(cast, skills) {
       }
     } else if (skillName.startsWith('Epilogue')) {
       return 'C5'; // Based on feedback! :D
+    } else if (namesSpecterShroud.hasOwnProperty(skillName)) {
+      return namesSpecterShroud[skillName];
     }
   }
 

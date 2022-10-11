@@ -56,10 +56,30 @@ const profSpecificBuffs = {
   'Relentless Fire': 9,
   'Elemental Empowerment':  10,
   'Empowering Auras': 11,
+
   // Chrono
   'Fencer\'s Finess': 0,
   'Time Anchored': 1,
   'Signet of the Ether': 2,
+  // Mirage
+  'Mirage Cloak': 0,
+  'Compounding Power': 1,
+  'Chaos Armor': 3,
+  // Virtuoso
+  'Deadly Blades': 4,
+  'Virtuoso Blade': 5,
+  'Signet of Illusions': 6,
+
+  // Reaper
+  'Reaper\'s Shroud': 0,
+  // Scourge
+  'Plague Sending': 1,
+  'Soul Barbs': 2,
+  // Harbinger
+  'Harbinger Shroud': 0,
+  'Blight': 3,
+  'Locust Swarm': 4,
+
   // Daredevil
   'Assassin\'s Signet (Passive)': 0,
   'Assassin\'s Signet (Active)': 1,
@@ -69,17 +89,50 @@ const profSpecificBuffs = {
   'Lotus Training': 5,
   'Skale Venom': 6,
   'Spider Venom': 7,
-  // Mirage
-  'Mirage Cloak': 0,
-  'Compounding Power': 1,
+  // Specter
+  'Shadow Shroud': 0,
+  // Deadeye
+  'Kneeling': 8,
+  'Deadeye\'s Gaze': 9,
+
+  // Soulbeast
+  'One Wolf Pack': 0,
+  'Sharpening Stone': 1,
+  'Sic \'Em!': 2,
+  'Twice as Vicious': 3,
+  // Untamed
+  'Unleashed': 2,
+  'Pet Unleashed': 3,
+
+  // Holosmith
+  'Photon Forge': 0,
+  'Afterburner': 1,
+
+  // Mechanist (nothing interesting yet)
+  // Scrapper (stability added based on profession)
+
   // Renegade
   'Legendary Demon Stance': 0,
   'Legendary Assassin Stance': 1,
   'Legendary Renegade Stance': 2,
-  'Embrace the Darkness': 3,
-  'Impossible Odds': 4,
-  'Razorclaw\'s Rage': 5,
-  'Improved Kalla\'s Fervor': 6,
+  'Legendary Dragon Stance': 3,
+  'Legendary Alliance Stance': 4,
+  'Embrace the Darkness': 5,
+  'Impossible Odds': 6,
+  'Razorclaw\'s Rage': 7,
+  'Improved Kalla\'s Fervor': 8,
+  // Herald
+  'Facet of Nature': 9,
+  'Facet of Light': 10,
+  'Facet of Elements': 11,
+  'Facet of Darkness': 12,
+  'Facet of Strength': 13,
+  'Burst of Strength': 14,
+  'Facet of Chaos': 15,
+  'Expose Defenses': 16,
+  // Vindicator
+  'Forerunner of Death': 9,
+
   // Firebrand
   'Zealot\'s Flame': 0,
   'Renewed Focus': 1,
@@ -89,19 +142,14 @@ const profSpecificBuffs = {
   'Shield of Wrath': 1,
   'Spear of Justice': 2,
   Justice: 3,
+  // Willbender
+  'Lethal Tempo': 8,
+  'Rushing Justice': 9,
   // Guardian
   'Inspiring Virtue': 4,
   'Virtue of Courage': 5,
   'Virtue of Justice': 6,
   'Virtue of Resolve': 7,
-
-  // Soulbeast
-  'One Wolf Pack': 0,
-  'Sharpening Stone': 1,
-  'Sic \'Em!': 2,
-  'Twice as Vicious': 3,
-  // Reaper
-  'Reaper\'s Shroud': 0,
 };
 
 function recreateJusticeFromSpearPassive(log) {
@@ -176,6 +224,12 @@ function draw(board, legend, log, player, startRow, dimensions, showBoring,
       'Water Attunement': true,
       'Air Attunement': true,
       'Earth Attunement': true,
+    });
+  }
+
+  if (player.profession === 'Scrapper') {
+    Object.assign(profSpecificBuffs, {
+      'Stability': 0,
     });
   }
 

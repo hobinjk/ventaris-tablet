@@ -58,7 +58,7 @@ const profSpecificBuffs = {
   'Empowering Auras': 11,
 
   // Chrono
-  'Fencer\'s Finess': 0,
+  'Fencer\'s Finesse': 0,
   'Time Anchored': 1,
   'Signet of the Ether': 2,
   // Mirage

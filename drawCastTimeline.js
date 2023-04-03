@@ -18,6 +18,17 @@ const namesSpecterShroud = {
   'Mind Shock': '5',
 };
 
+const namesBladeswornShroud = {
+  'Swift Cut': '1',
+  'Steel Divide': '1',
+  'Explosive Thrust': '1',
+  'Blooming Fire': '2',
+  'Artillery Slash': '3',
+  'Cyclone Trigger': '4',
+  'Break Step': '5',
+  'Dragon Slash—Force': '1'
+}
+
 function castSkillIcon(cast) {
   let data = SkillData.get(cast.id);
   if (!data || !data.icon) {
@@ -65,6 +76,8 @@ function castSkillName(cast, skills) {
       return 'C5'; // Based on feedback! :D
     } else if (namesSpecterShroud.hasOwnProperty(skillName)) {
       return namesSpecterShroud[skillName];
+    } else if (namesBladeswornShroud.hasOwnProperty(skillName)) {
+      return namesBladeswornShroud[skillName];
     }
   }
 

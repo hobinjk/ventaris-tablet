@@ -42,6 +42,8 @@ const profSpecificBuffs = {
   'Weaver\'s Prowess': 16,
   'Persistent Flames': 17,
   'Fire Aura': 18,
+  'Shocking Aura': 19,
+  'Fresh Air': 20,
   // Tempest
   'Air Attunement': 0,
   'Earth Attunement': 1,
